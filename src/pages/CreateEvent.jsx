@@ -45,7 +45,7 @@ function CreateEvent() {
       };
      
 
-      await axios.post("/api/events", eventDataFinal);
+      await axios.post("https://event-management-backend-7xgi.onrender.com/api/events", eventDataFinal);
       toast.success("Event created successfully!");
       navigate("/dashboard");
     } catch (error) {

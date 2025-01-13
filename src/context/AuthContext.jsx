@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   // Function to verify the user's token and fetch user details
   const verifyToken = async () => {
     try {
-      const response = await axios.get('/api/auth/me');
+      const response = await axios.get('https://event-management-backend-7xgi.onrender.com/api/auth/me');
       setUser(response.data); // Set the user data from the response
     } catch (error) {
       console.error('Token verification failed:', error);
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
   // Function to log in the user
   const login = async (credentials) => {
     try {
-      const response = await axios.post('/api/auth/login', credentials);
+      const response = await axios.post('https://event-management-backend-7xgi.onrender.com/api/auth/login', credentials);
       const { token, user } = response.data;
       localStorage.setItem('token', token); // Save token to localStorage
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Set default auth header
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     try {
       console.log("userData",userData)
-      const response = await axios.post('/api/auth/register', userData);
+      const response = await axios.post('https://event-management-backend-7xgi.onrender.com/api/auth/register', userData);
       const { token, user } = response.data;
       console.log(response.data)
       localStorage.setItem('token', token); // Save token to localStorage

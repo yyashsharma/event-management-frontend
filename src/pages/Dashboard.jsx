@@ -18,8 +18,8 @@ function Dashboard() {
   const fetchEvents = async () => {
     try {
       const [createdResponse, attendingResponse] = await Promise.all([
-        axios.get('/api/events/created'),
-        axios.get('/api/events/attending')
+        axios.get('https://event-management-backend-7xgi.onrender.com/api/events/created'),
+        axios.get('https://event-management-backend-7xgi.onrender.com/api/events/attending')
       ]);
       
       setMyEvents(createdResponse.data);
@@ -34,7 +34,7 @@ function Dashboard() {
   const handleDeleteEvent = async (eventId) => {
     if (window.confirm('Are you sure you want to delete this event?')) {
       try {
-        await axios.delete(`/api/events/${eventId}`);
+        await axios.delete(`https://event-management-backend-7xgi.onrender.com/api/events/${eventId}`);
         setMyEvents(events => events.filter(event => event._id !== eventId));
         toast.success('Event deleted successfully');
       } catch (error) {

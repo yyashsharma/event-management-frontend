@@ -17,7 +17,7 @@ function EventDetails() {
 
   const fetchEventDetails = useCallback(async () => {
     try {
-      const response = await axios.get(`/api/events/${id}`);
+      const response = await axios.get(`https://event-management-backend-7xgi.onrender.com/api/events/${id}`);
       setEvent(response.data);
       const isUserAttending = response.data.attendees.some(
         (attendee) => attendee._id === user?._id
@@ -74,7 +74,7 @@ function EventDetails() {
     }
 
     try {
-      const response = await axios.post(`/api/events/${id}/attendees`, {
+      const response = await axios.post(`https://event-management-backend-7xgi.onrender.com/api/events/${id}/attendees`, {
         userId: user._id,
       });
       
@@ -101,7 +101,7 @@ function EventDetails() {
     }
 
     try {
-      const response = await axios.delete(`/api/events/${id}/attendees/${user._id}`);
+      const response = await axios.delete(`https://event-management-backend-7xgi.onrender.com/api/events/${id}/attendees/${user._id}`);
       
       // Update local state immediately
       setAttending(false);
@@ -218,7 +218,7 @@ function EventDetails() {
                           )
                         ) {
                           try {
-                            await axios.delete(`/api/events/${id}`);
+                            await axios.delete(`https://event-management-backend-7xgi.onrender.com/api/events/${id}`);
                             toast.success("Event deleted successfully");
                             navigate("/dashboard");
                           } catch (error) {

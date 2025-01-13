@@ -15,7 +15,7 @@ function Home() {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("/api/events");
+      const response = await axios.get("https://event-management-backend-7xgi.onrender.com/api/events");
       setEvents(response.data);
     } catch (error) {
       console.error("Error fetching events:", error);

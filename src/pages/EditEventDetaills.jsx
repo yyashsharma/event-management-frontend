@@ -25,7 +25,7 @@ const EditEventDetaills = () => {
   const fetchEventDetails = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/events/${id}`);
+      const { data } = await axios.get(`https://event-management-backend-7xgi.onrender.com/api/events/${id}`);
       const eventDate = new Date(data.date);
       setEventDetails({
         title: data.title,
@@ -62,7 +62,7 @@ const EditEventDetaills = () => {
       };
       delete updatedEvent.time;
 
-      await axios.put(`/api/events/${id}`, updatedEvent);
+      await axios.put(`https://event-management-backend-7xgi.onrender.com/api/events/${id}`, updatedEvent);
       toast.success("Event updated successfully!");
       navigate("/dashboard");
     } catch (error) {
