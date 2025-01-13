@@ -6,11 +6,10 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://event-management-backend-7xgi.onrender.com',
-        changeOrigin: true, // Ensures the host header matches the target
-        rewrite: (path) => path.replace(/^\/api/, ''), // Removes "/api" from the path
-      },
-    },
+        target: 'http://localhost:5000',
+        secure: false,
+      }
+    }
   },
   plugins: [react()],
 })
