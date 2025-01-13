@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://event-management-backend-7xgi.onrender.com/',
         secure: false,
       }
     }
